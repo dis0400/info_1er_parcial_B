@@ -1,62 +1,85 @@
-# Infografia - Universidad Privada Boliviana 1er parcial B
+# Primer Parcial Infografia: Proyecto Paint en Python
 
-## Descripción
+Este proyecto es una aplicación de dibujo simple implementada en Python utilizando la biblioteca `arcade`. Permite a los usuarios dibujar utilizando varias herramientas, guardar los dibujos en formato JSON y crear animaciones GIF del proceso de dibujo.
 
-Este repositorio contiene el código base para el proyecto de tipo B.
+Realizado por Alexia Marin
 
-Este proyecto implementa la funcionalidad base una versión inicial de PAINT. El proyecto contiene código para la mecánica fundamental y los objetos necesarios. Usted deberá completar el código fuente e implementar funcionalidades adicionales.
+## Características
 
-## Instrucciones
+- **Herramientas de Dibujo**: Incluye lápiz, marcador, spray y goma de borrar.
+- **Selección de Color**: Cambia entre diferentes colores para personalizar tus trazos.
+- **Tamaños de Herramienta**: Selecciona entre diferentes tamaños de herramienta para ajustar el grosor de los trazos.
+- **Guardado de Dibujo**: Guarda tu dibujo en un archivo JSON para cargarlo más tarde.
+- **Creación de GIF**: Captura el proceso de dibujo y guárdalo como un archivo GIF animado.
 
-Para ejecutar el programa de arcade:
+## Requisitos Previos
 
-1. Clone (o forkee) el repositorio en un directorio local.
-2. Abra la carpeta completa con Visual Studio code.
-3. Ejecute el archivo main.py.
+Antes de ejecutar el proyecto, asegúrate de tener instalados los siguientes requisitos:
 
-Siga las instrucciones para la implementación de la evaluación.
+- Python 3.9 o superior
+- Paquetes de Python:
+  - `arcade`
+  - `imageio`
+  - `numpy`
 
-### Implementación de características adicionales
-
-La aplicación cuenta con una herramienta de lápiz implementada. El mecanismo de funcionamiento está basado en un conjunto de trazos. El objeto self.traces es una lista de diccionarios, cada elemento representa un trazo a dibujar en la pantalla. Cada trazo tiene el siguiente formato como diccionario de python:
-```python
-{"tool": TOOL_NAME, "color": COLOR, "trace":[(x0, y0), (x1, y1), ... (xn, yn)]}
-```
-Usted deberá implementar las siguientes características como nuevas clases en el archivo `tool.py`:
-
-#### Marker Tool
-
-La herramienta de marcador funciona similar a la herramienta del lápiz, pero en este caso se cuenta con un grosor incrementado.
-
-#### Spray Tool
-
-La herramienta de spray deberá pintar cierto número de pixeles alrededor del pixel en el que se hace clic.
-
-#### Eraser Tool
-
-La herramienta borrador, deberá eliminar los trazos que toca.
-
-#### Guardado y Carga de dibujos
-
-Adicionalmente, usted deberá implementar una funcionalidad de Guardado y Carga de dibujos simplemente guardando el objeto `self.traces` en un archivo de texto.
-El guardado deberá realizarse al presionar la tecla `O` y la carga podrá realizarse a través de un argumento de línea de comandos.
-Para la carga deberá usar la siguiente forma de invocar el programa:
+Puedes instalar las dependencias ejecutando:
 
 ```bash
-python main.py ruta/a/mi/archivo
+pip install arcade imageio numpy
 ```
 
+## Cómo Ejecutar el Proyecto
 
-#### (Extra) Interfaz gráfica
+### Ejecución Básica
 
-Se considerará la implementación de una interfaz gráfica con botones para cambiar herramientas y colores y cualquier adición de funcionalidad al programa.
+Para iniciar la aplicación de dibujo, simplemente ejecuta el archivo `main.py`:
 
-### Envío del código
+```bash
+python main.py
+```
 
-Usted deberá enviar un enlace a un repositorio de github que solamente contendrá el código del proyecto en cuestión. Se recomienda que, para salvar inconvenientes con GIT, usted realice un fork de este repositorio en su propia cuenta, y luego clone el fork a su directorio local. 
+### Guardar un Dibujo
 
-Una vez finalizadas las tareas, se deberá enviar un email por grupo con los siguientes datos:
+1. Dibuja utilizando las herramientas proporcionadas.
+2. Presiona la tecla `O` para guardar tu dibujo como un archivo JSON (`drawing.json`).
+3. El archivo se guardará en el directorio actual.
 
- - Destinatario: eduardo.laruta+tareas@gmail.com
- - Asunto: 1era Evaluacion parcial Infografia
- - Contenido: Nombres y códigos de los integrantes y el enlace al repositorio de GitHub
+### Guardar un GIF
+
+1. Dibuja utilizando las herramientas proporcionadas.
+2. Presiona la tecla `V` para guardar un GIF animado del proceso de dibujo (`drawing.gif`).
+3. El GIF se guardará en el directorio actual.
+
+### Cargar un Dibujo Guardado
+```bash
+python main.py drawing.json
+```
+
+## Uso de Herramientas
+- **Herramientas**:
+  - `F`: Lápiz
+  - `P`: Marcador
+  - `S`: Spray
+  - `E`: Goma de borrar
+
+- **Colores**:
+  - `R`: Rojo
+  - `G`: Verde
+  - `B`: Azul
+  - `Y`: Amarillo
+  - `K`: Negro
+
+- **Tamaños**:
+  - `1`: Tamaño pequeño
+  - `2`: Tamaño mediano
+  - `3`: Tamaño grande
+
+## Estructura del Proyecto
+
+```
+|-- main.py          # Archivo principal que ejecuta la aplicación
+|-- tool.py          # Definición de las herramientas de dibujo
+|-- drawing.json     # Ejemplo de archivo JSON guardado (opcional)
+|-- drawing.gif      # Ejemplo de GIF guardado (opcional)
+|-- README.md        # Este archivo
+```
